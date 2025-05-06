@@ -3,7 +3,7 @@
 print:
 	echo $(SHELL)
 
-all: setup install test
+all: setup install
 
 setup:
 	pip install uv
@@ -21,9 +21,6 @@ install:
 xpu:
 	uv sync --extra xpu
 	uv pip install torch==2.7.0+xpu --extra-index-url https://download.pytorch.org/whl/xpu
-
-test:
-	uv run pytest -vrxP ./tests
 
 style:
 	uv run pre-commit run --all-files

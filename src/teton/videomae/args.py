@@ -14,8 +14,9 @@ class Arguments(BaseModel):
         model_size: which VideoMAE to use.
     """
     video_path: str
-    crop_pixels: int = Field(default=1400, gt=1)
+    crop_pixels: int = Field(default=1400, ge=224)
     model_size: Literal["small", "base", "large", "huge"] = "base"
+    batch_size: int = Field(default=1, ge=1)
 
 def parse_args() -> Arguments:
     parser = argparse.ArgumentParser(description="Classify actions with VideoMAE")
@@ -35,6 +36,12 @@ def parse_args() -> Arguments:
         type=str,
         choices=["small", "base", "large", "huge"],
         help="Model size to use.",
+    )
+
+    parser.add_argument(
+        "--batch_size",
+        type=int,
+        help="Batch size to use",
     )
 
 

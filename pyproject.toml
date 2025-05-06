@@ -16,7 +16,7 @@ dependencies = [
     "torch",
     "av",
     "transformers",
-    "pillow>=11.2.1",
+    "pillow",
 ]
 
 [project.optional-dependencies]
