@@ -12,9 +12,6 @@ setup:
 build:
 	uv build
 
-activate:
-	. .venv/bin/activate
-
 install:
 	uv sync
 

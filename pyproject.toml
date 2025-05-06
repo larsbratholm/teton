@@ -28,7 +28,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [dependency-groups]
-dev = ["bumpver", "pre-commit"]
+dev = ["mypy", "bumpver", "pre-commit"]
 
 
 [tool.ruff.lint]
@@ -51,16 +51,16 @@ docstring-code-format = true
 
 [tool.mypy]
 strict = true
-implicit-reexport = true
-ignore-missing-imports = true
+implicit_reexport = true
 
-[[tool.mypy.overrides]]
-module = []
-ignore_missing_imports = true
+# [[tool.mypy.overrides]]
+# module = []
+# ignore_missing_imports = true
 
 [tool.bumpver]
 version_pattern = "MAJOR.MINOR.PATCH"
 current_version = "0.0.1"
+
 [tool.bumpver.file_patterns]
 "pyproject.toml" = ['^version = "{version}"$', 'current_version = "{version}"$']
 "src/teton/__init__.py" = ['^__version__ = "{version}"$']
