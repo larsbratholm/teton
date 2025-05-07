@@ -245,6 +245,7 @@ def _dynamic_crop(frames: NDArray[np.uint8], minimum_crop: int) -> NDArray[np.ui
     assert (new_y1 - new_y0) == new_side or (new_y1 - new_y0) == H
     assert (new_x1 - new_x0) == new_side or (new_x1 - new_x0) == W
 
+    # import cv2
     # bgr_frame = cv2.cvtColor(frames[0], cv2.COLOR_RGB2BGR)
     # cv2.rectangle(bgr_frame, (new_x0, new_y0), (new_x1, new_y1), (0, 0, 255), 2)
     # cv2.imwrite(f"frame.png", bgr_frame)

@@ -17,7 +17,7 @@ dependencies = [
     "av",
     "transformers",
     "pillow",
-    "opencv-python-headless",
+    "opencv-python",
 ]
 
 
