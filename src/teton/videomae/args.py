@@ -14,15 +14,15 @@ class Arguments(BaseModel):
 
     Args:
         video_path: the location of the video input file
-        crop_pixels: the number of pixels to include in a square crop
+        minimum_crop: the minimum number of pixels to include in the crops
         model_size: which VideoMAE to use.
-        batch_size: the batch size for inference
+        square_crop: Use a central square crop instead of a dynamic one
     """
 
     video_path: str
-    crop_pixels: int = Field(default=1400, ge=224)
+    minimum_crop: int = Field(default=600, ge=224)
     model_size: Literal["small", "base", "large", "huge"] = "huge"
-    batch_size: int = Field(default=1, ge=1)
+    square_crop: bool = False
 
 
 def parse_args() -> Arguments:
@@ -39,7 +39,9 @@ def parse_args() -> Arguments:
         help="Location of video input file.",
     )
     parser.add_argument(
-        "--crop_pixels", type=int, help="Number of pixels to include in a square crop."
+        "--minimum_crop",
+        type=int,
+        help="Minimum number of pixels to include in the crop.",
     )
 
     parser.add_argument(
@@ -49,11 +51,7 @@ def parse_args() -> Arguments:
         help="Model size to use.",
     )
 
-    parser.add_argument(
-        "--batch_size",
-        type=int,
-        help="Batch size to use",
-    )
+    parser.add_argument("--square_crop", action="store_true")
 
     args = Arguments(
         **{

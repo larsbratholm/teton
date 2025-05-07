@@ -17,10 +17,10 @@ dependencies = [
     "av",
     "transformers",
     "pillow",
+    "opencv-python-headless",
+    "timm>=1.0.15",
+    "ultralytics>=8.3.128",
 ]
-
-[project.optional-dependencies]
-xpu = ["intel-extension-for-pytorch"]
 
 
 [build-system]
