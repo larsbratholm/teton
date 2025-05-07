@@ -18,8 +18,6 @@ dependencies = [
     "transformers",
     "pillow",
     "opencv-python-headless",
-    "timm>=1.0.15",
-    "ultralytics>=8.3.128",
 ]
 
 
